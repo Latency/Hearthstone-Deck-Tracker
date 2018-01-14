@@ -38,34 +38,34 @@ namespace ResourceGenerator {
       if (!card.Collectible && card.Type != CardType.MINION && card.Type != CardType.SPELL && card.Type != CardType.WEAPON)
         return;
 
-      if (!img.Exists || img.Length == 0 || overwrite) {
-        if (!IsMsBuildInvoked)
-          Console.WriteLine($@"Downloading missing image data for set [{card.Set.ToString() + ']',13} - {card.Name,-30} ({card.Id})");
+      if (img.Exists && img.Length != 0 && !overwrite)
+        return;
 
-        var data = new WebClient().DownloadData($"https://art.hearthstonejson.com/v1/tiles/{card.Id}.png");
-        using (var ms = new MemoryStream(data)) {
-          var options = new ResizeOptions {
-            Size = new Size(130, 34),
-            Mode = ResizeMode.Stretch
-          };
+      Console.WriteLine($@"Downloading missing image data for set [{card.Set.ToString() + ']',13} - {card.Name,-30} ({card.Id})");
 
-          var src = Image.Load(ms);
-          var offset = src.Width - options.Size.Width;
-          src.Mutate(context => {
-            context.Crop(new Rectangle(offset, 0, src.Width - offset, src.Height)).Resize(options);
-          });
+      var data = new WebClient().DownloadData($"https://art.hearthstonejson.com/v1/tiles/{card.Id}.png");
+      using (var ms = new MemoryStream(data)) {
+        var options = new ResizeOptions {
+          Size = new Size(130, 34),
+          Mode = ResizeMode.Stretch
+        };
 
-          var path = Path.Combine(Arguments[0], Arguments[1]);
-          if (!Directory.Exists(path))
-            Directory.CreateDirectory(path);
+        var src = Image.Load(ms);
+        var offset = src.Width - options.Size.Width;
+        src.Mutate(context => {
+          context.Crop(new Rectangle(offset, 0, src.Width - offset, src.Height)).Resize(options);
+        });
 
-          var encoder = new PngEncoder {
-            PngColorType = PngColorType.Palette
-          };
-          src.Save(Path.Combine(path, img.Name), encoder);
+        var path = Path.Combine(Arguments[0], Arguments[1]);
+        if (!Directory.Exists(path))
+          Directory.CreateDirectory(path);
 
-          kvp.Value.DownloadCount++;
-        }
+        var encoder = new PngEncoder {
+          PngColorType = PngColorType.Palette
+        };
+        src.Save(Path.Combine(path, img.Name), encoder);
+
+        kvp.Value.DownloadCount++;
       }
     }
   }

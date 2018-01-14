@@ -91,10 +91,8 @@ namespace ResourceGenerator {
 
             CreateResources(args, options, setCollection);
 
-            if (!IsMsBuildInvoked) {
-              var dlCount = setCollection.Sum(kvp => kvp.Value.DownloadCount);
-              Console.WriteLine($@"Downloaded information for ({dlCount}/{cardCount}) file{(cardCount > 1 ? "s" : string.Empty)}.");
-            }
+            var dlCount = setCollection.Sum(kvp => kvp.Value.DownloadCount);
+            Console.WriteLine($@"Downloaded information for ({dlCount}/{cardCount}) file{(cardCount > 1 ? "s" : string.Empty)}.");
           },
           OnExited = (sender, tea) => {
             tea.Task.Dispose();

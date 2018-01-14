@@ -39,11 +39,9 @@ namespace Hearthstone_Deck_Tracker.FlyoutControls.Options.Tracker
 
 		private async void ButtonRestore_Click(object sender, RoutedEventArgs e)
 		{
-			var selected = ListBoxBackups.SelectedItem as BackupFile;
-			if(selected == null)
+		  if(!(ListBoxBackups.SelectedItem is BackupFile selected))
 				return;
-			var result =
-				await
+			var result = await
 				Core.MainWindow.ShowMessageAsync("Restore backup " + selected.DisplayName,
 												 "This can not be undone! Make sure you have a current backup (if necessary). To create one, CANCEL and click \"CREATE NEW\".",
 												 MessageDialogStyle.AffirmativeAndNegative);
@@ -55,7 +53,7 @@ namespace Hearthstone_Deck_Tracker.FlyoutControls.Options.Tracker
 
 		private void ButtonCreateNew_Click(object sender, RoutedEventArgs e)
 		{
-			BackupManager.CreateBackup($"BackupManual_{DateTime.Today.ToString("ddMMyyyy")}.zip");
+			BackupManager.CreateBackup($"BackupManual_{DateTime.Today:ddMMyyyy}.zip");
 			ListBoxBackups.Items.Clear();
 			Load();
 		}

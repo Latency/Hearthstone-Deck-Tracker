@@ -70,8 +70,7 @@ namespace ResourceGenerator {
 	      } catch (Exception ex) {
 	        Debug.WriteLine(ex.Message);
 	      } finally {
-	        if (!IsMsBuildInvoked)
-	          Console.WriteLine($@"{++it,2}. Generating ""{resx}""");
+            Console.WriteLine($@"{++it,2}. Generating ""{resx}""");
 			kvp.Value.ResourceWriter.Close();
 		  }
 	    });

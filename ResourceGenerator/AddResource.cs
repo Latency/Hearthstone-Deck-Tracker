@@ -34,9 +34,7 @@ namespace ResourceGenerator {
 	  var fi = new FileInfo(path);
 
       if (!fi.Exists) {
-        if (!card.Collectible && card.Type != CardType.MINION && card.Type != CardType.SPELL && card.Type != CardType.WEAPON)
-          return;
-        if (!IsMsBuildInvoked)
+        if (card.Collectible || card.Type == CardType.MINION || card.Type == CardType.SPELL || card.Type == CardType.WEAPON)
           Console.WriteLine($@"    Missing card `{card.Id}'.");
         return;
       }

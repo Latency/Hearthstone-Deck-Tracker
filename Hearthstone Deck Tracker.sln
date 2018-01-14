@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hearthstone Deck Tracker", "Hearthstone Deck Tracker\Hearthstone Deck Tracker.csproj", "{E63A3F1C-E662-4E62-BE43-AF27CB9E953D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hearthstone Deck Tracker", "Hearthstone Deck Tracker\Hearthstone Deck Tracker.csproj", "{E63A3F1C-E662-4E62-BE43-AF27CB9E953D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7ED14243-E02B-4B94-AF00-A67A62C282F0} = {7ED14243-E02B-4B94-AF00-A67A62C282F0}
+		{A3F20963-6093-4111-8449-A558C39A5CEF} = {A3F20963-6093-4111-8449-A558C39A5CEF}
 		{A6264074-8A96-417C-9673-5EE7E9820B1F} = {A6264074-8A96-417C-9673-5EE7E9820B1F}
 		{1694A2F8-645A-4263-A6AB-FC26323FD675} = {1694A2F8-645A-4263-A6AB-FC26323FD675}
 	EndProjectSection
