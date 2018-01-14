@@ -1411,8 +1411,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)PostBuildEvent.bat" "$(SolutionDir)" "$(ProjectDir)" "$(TargetDir)" "$(DevEnvDir)" "$(OutDir)" 0</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>"$(ProjectDir)PreBuildEvent.bat" "$(ProjectDir)..\" "$(ProjectDir)" "$(TargetDir)" "$(DevEnvDir)" 1 0</PreBuildEvent>

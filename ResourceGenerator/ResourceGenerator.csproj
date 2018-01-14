@@ -21,11 +21,9 @@
 	  <Compile Remove="CreateWatcher.cs" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta3" />
-	</ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="ORM-Monitor" Version="2.3.2" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0002" />
     <ProjectReference Include="..\HearthDb\HearthDb\HearthDb.csproj" />
   </ItemGroup>
 
