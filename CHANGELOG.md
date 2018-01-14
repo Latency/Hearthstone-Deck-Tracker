@@ -1,3 +1,11 @@
+## __Release v1.5.11 - 2018-01-11__
+
+- Refactored namespaces.
+- Rewrote ResourceGenerator for async handling.
+- Updated framework to .NET 4.7,1 and dependancy libraries x-targeting .NET 4.7.1 & .NET Core 2.0.
+- Revamped Pre/Postevent.bat file to better automate installation for resource generation.
+- Fixed various hotpoints relating to null pointer exceptions (NPEs) throughout.
+
 ## __Release v1.5.10 - 2017-12-18__
 
 - Fixed tracking of cards created by: Dead Man's Hand, Psychic Scream, Spiteful Summoner, Dragon's Fury, and several others.

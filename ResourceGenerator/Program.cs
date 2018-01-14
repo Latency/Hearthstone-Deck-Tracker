@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
 using System.Resources;
 using HearthDb;
 using HearthDb.Enums;
-using nQuant;
+using SixLabors.ImageSharp;
+
 
 namespace ResourceGenerator
 {
@@ -46,8 +45,15 @@ namespace ResourceGenerator
 							Console.WriteLine($"missing {card.Id}");
 						if(!img.Exists)
 							continue;
-						rw.AddResource(card.Id, new Bitmap(img.FullName));
-					}
+						using (var bmp = Image.Load(img.FullName))
+					    {
+					        using (var ms = new MemoryStream())
+						    {
+							    bmp.SaveAsBmp(ms);
+							    rw.AddResource(card.Id, ms);
+							}
+					    }
+				    }
 				}
 			}
 		}
