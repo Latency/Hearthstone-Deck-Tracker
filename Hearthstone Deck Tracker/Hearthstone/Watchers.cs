@@ -7,6 +7,7 @@ using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Enums.Hearthstone;
 using Hearthstone_Deck_Tracker.HsReplay;
 using Hearthstone_Deck_Tracker.Importing;
+using Hearthstone_Deck_Tracker.Utility;
 using HearthWatcher;
 using HearthWatcher.Providers;
 
@@ -20,6 +21,7 @@ namespace Hearthstone_Deck_Tracker.Hearthstone
 			PackWatcher.NewPackEventHandler += (sender, args) => PackUploader.UploadPack(args.PackId, args.Cards);
 			DungeonRunWatcher.DungeonRunMatchStarted += DeckManager.DungeonRunMatchStarted;
 			DungeonRunWatcher.DungeonInfoChanged += DeckManager.UpdateDungeonRunDeck;
+			FriendlyChallengeWatcher.OnFriendlyChallenge += OnFriendlyChallenge;
 		}
 
 		internal static void Stop()
@@ -27,11 +29,19 @@ namespace Hearthstone_Deck_Tracker.Hearthstone
 			ArenaWatcher.Stop();
 			PackWatcher.Stop();
 			DungeonRunWatcher.Stop();
+			FriendlyChallengeWatcher.Stop();
+		}
+
+		internal static void OnFriendlyChallenge(object sender, HearthWatcher.EventArgs.FriendlyChallengeEventArgs args)
+		{
+			if(args.DialogVisible && Config.Instance.FlashHsOnFriendlyChallenge)
+				User32.FlashHs();
 		}
 
 		public static ArenaWatcher ArenaWatcher { get; } = new ArenaWatcher(new HearthMirrorArenaProvider());
 		public static PackOpeningWatcher PackWatcher { get; } = new PackOpeningWatcher(new HearthMirrorPackProvider());
 		public static DungeonRunWatcher DungeonRunWatcher { get; } = new DungeonRunWatcher(new GameDataProvider());
+		public static FriendlyChallengeWatcher FriendlyChallengeWatcher { get; } = new FriendlyChallengeWatcher(new HearthMirrorFriendlyChallengeProvider());
 	}
 
 	public class GameDataProvider : IGameDataProvider
@@ -51,5 +61,10 @@ namespace Hearthstone_Deck_Tracker.Hearthstone
 	{
 		public ArenaInfo GetArenaInfo() => DeckImporter.FromArena(false);
 		public HearthMirror.Objects.Card[] GetDraftChoices() => Reflection.GetArenaDraftChoices()?.ToArray();
+	}
+
+	public class HearthMirrorFriendlyChallengeProvider : IFriendlyChallengeProvider
+	{
+		public bool DialogVisible => Reflection.IsFriendlyChallengeDialogVisible();
 	}
 }

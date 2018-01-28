@@ -8,7 +8,7 @@ using Hearthstone_Deck_Tracker.Utility.Logging;
 
 #endregion
 
-namespace Hearthstone_Deck_Tracker.Controls.Error
+namespace Hearthstone_Deck_Tracker.Errors
 {
 	public class ErrorManager
 	{

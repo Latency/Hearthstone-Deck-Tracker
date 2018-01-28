@@ -158,7 +158,7 @@ namespace Hearthstone_Deck_Tracker
 			}
 			_waitingForUserInput = true;
 			Log.Info("Waiting for user input...");
-			var dsDialog = new Windows.DeckSelectionDialog(decks);
+			var dsDialog = new DeckSelectionDialog(decks);
 			dsDialog.ShowDialog();
 
 			var selectedDeck = dsDialog.SelectedDeck;

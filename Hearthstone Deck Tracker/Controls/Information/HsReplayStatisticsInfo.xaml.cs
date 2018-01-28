@@ -8,8 +8,7 @@ using Hearthstone_Deck_Tracker.Utility;
 
 namespace Hearthstone_Deck_Tracker.Controls.Information
 {
-	public partial class HsReplayStatisticsInfo : UserControl
-	{
+	public partial class HsReplayStatisticsInfo {
 		public HsReplayStatisticsInfo()
 		{
 			InitializeComponent();

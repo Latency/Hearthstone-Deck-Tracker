@@ -5,7 +5,7 @@
                       xmlns:local="clr-namespace:Hearthstone_Deck_Tracker"
                       xmlns:controls1="clr-namespace:Hearthstone_Deck_Tracker.Controls"
                       xmlns:flyoutControls="clr-namespace:Hearthstone_Deck_Tracker.FlyoutControls"
-                      xmlns:error="clr-namespace:Hearthstone_Deck_Tracker.Controls.Error"
+                      xmlns:error="clr-namespace:Hearthstone_Deck_Tracker.Errors"
                       xmlns:deckPicker="clr-namespace:Hearthstone_Deck_Tracker.Controls.DeckPicker"
                       xmlns:windows="clr-namespace:Hearthstone_Deck_Tracker.Windows"
                       xmlns:utility="clr-namespace:Hearthstone_Deck_Tracker.Utility.Updating"
@@ -222,7 +222,7 @@
                         </ComboBox>
                     </DockPanel>
                 </Border>
-                <local:ManaCurve x:Name="ManaCurveMyDecks" Height="150" Margin="0,5,0,0" DockPanel.Dock="Bottom"/>
+                <controls1:ManaCurve x:Name="ManaCurveMyDecks" Height="150" Margin="0,5,0,0" DockPanel.Dock="Bottom"/>
                 <ListView x:Name="ListViewDeck" Background="#696969"
                                     Foreground="White" FontWeight="Bold" BorderThickness="1"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"

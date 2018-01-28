@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using Hearthstone_Deck_Tracker.Controls.Error;
+using Hearthstone_Deck_Tracker.Errors;
 using Hearthstone_Deck_Tracker.Stats;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 

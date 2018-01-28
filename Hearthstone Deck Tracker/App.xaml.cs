@@ -9,7 +9,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
-using Hearthstone_Deck_Tracker.Controls.Error;
+using Hearthstone_Deck_Tracker.Errors;
 using Hearthstone_Deck_Tracker.Plugins;
 using Hearthstone_Deck_Tracker.Utility;
 using Hearthstone_Deck_Tracker.Utility.Extensions;
@@ -24,8 +24,7 @@ namespace Hearthstone_Deck_Tracker
 	/// <summary>
 	/// Interaction logic for App.xaml
 	/// </summary>
-	public partial class App : Application
-	{
+	public partial class App {
 		private static bool _createdReport;
 
 		private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

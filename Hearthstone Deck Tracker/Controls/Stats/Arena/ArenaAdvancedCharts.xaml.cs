@@ -11,8 +11,7 @@ namespace Hearthstone_Deck_Tracker.Controls.Stats.Arena
 	/// <summary>
 	/// Interaction logic for ArenaAdvancedCharts.xaml
 	/// </summary>
-	public partial class ArenaAdvancedCharts : UserControl
-	{
+	public partial class ArenaAdvancedCharts {
 		public ArenaAdvancedCharts()
 		{
 			InitializeComponent();

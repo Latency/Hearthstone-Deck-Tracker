@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Forms;
 using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Utility;
-using Hearthstone_Deck_Tracker.Utility.Extensions;
 using MahApps.Metro.Controls;
 using Point = System.Drawing.Point;
 

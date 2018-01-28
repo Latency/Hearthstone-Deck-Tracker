@@ -15,8 +15,7 @@ namespace Hearthstone_Deck_Tracker.Controls.Stats
 	/// <summary>
 	/// Interaction logic for Overview.xaml
 	/// </summary>
-	public partial class Overview : UserControl
-	{
+	public partial class Overview {
 		private readonly ArenaAdvancedCharts _arenaAdvancedCharts = new ArenaAdvancedCharts();
 		private readonly bool _initialized;
 

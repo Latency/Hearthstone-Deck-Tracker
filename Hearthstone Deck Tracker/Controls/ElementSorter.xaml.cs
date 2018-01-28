@@ -1,7 +1,7 @@
 ﻿#region
 
-using System.Linq;
 using Hearthstone_Deck_Tracker.Enums;
+using System.Linq;
 
 #endregion
 

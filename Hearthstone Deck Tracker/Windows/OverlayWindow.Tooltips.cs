@@ -223,7 +223,7 @@ namespace Hearthstone_Deck_Tracker.Windows
 			var offset = 0.0;
 			foreach(var child in stackPanel.Children)
 			{
-				if(child is Controls.HearthstoneTextBlock text)
+				if(child is HearthstoneTextBlock text)
 					offset += text.ActualHeight;
 				else
 				{

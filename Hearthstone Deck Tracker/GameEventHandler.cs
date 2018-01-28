@@ -487,7 +487,7 @@ namespace Hearthstone_Deck_Tracker
 							}
 							if(discardDialog.Result == DiscardGameDialogResult.MoveToOther)
 							{
-								var moveDialog = new Windows.MoveGameDialog(DeckList.Instance.Decks.Where(d => d.Class == _game.CurrentGameStats.PlayerHero))
+								var moveDialog = new MoveGameDialog(DeckList.Instance.Decks.Where(d => d.Class == _game.CurrentGameStats.PlayerHero))
 								{
 									Topmost = true
 								};
@@ -530,7 +530,7 @@ namespace Hearthstone_Deck_Tracker
 					if(Config.Instance.ShowNoteDialogAfterGame && !Config.Instance.NoteDialogDelayed && !_showedNoteDialog)
 					{
 						_showedNoteDialog = true;
-						new Windows.NoteDialog(_game.CurrentGameStats);
+						new NoteDialog(_game.CurrentGameStats);
 					}
 					Log.Info("Assigned current game to deck: " + selectedDeck.Name);
 					_assignedDeck = selectedDeck;
@@ -583,7 +583,7 @@ namespace Hearthstone_Deck_Tracker
 				await Task.Delay(100);
 		}
 
-		private void LogEvent(string type, string id = "", int turn = 0, int from = -1, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "")
+		private static void LogEvent(string type, string id = "", int turn = 0, int from = -1, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "")
 			=> Log.Info($"{type} (id:{id} turn:{turn} from:{from})", memberName, sourceFilePath);
 
 		public void HandleWin()
@@ -620,7 +620,7 @@ namespace Hearthstone_Deck_Tracker
 				if(Config.Instance.ShowNoteDialogAfterGame && Config.Instance.NoteDialogDelayed && !_showedNoteDialog)
 				{
 					_showedNoteDialog = true;
-					new Windows.NoteDialog(_game.CurrentGameStats);
+					new NoteDialog(_game.CurrentGameStats);
 				}
 
 				if(_game.CurrentGameStats != null)

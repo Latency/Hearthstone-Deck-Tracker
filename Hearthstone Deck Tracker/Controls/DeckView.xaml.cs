@@ -152,8 +152,9 @@ namespace Hearthstone_Deck_Tracker.Controls
 				case "warlock":
 					return Warlock.Guldan;
 				case "warrior":
-				default:
 					return Warrior.GarroshHellscream;
+			    default:
+			        return string.Empty;
 			}
 		}
 	}

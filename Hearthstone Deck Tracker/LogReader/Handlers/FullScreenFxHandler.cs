@@ -10,7 +10,6 @@ using Hearthstone_Deck_Tracker.Importing;
 using Hearthstone_Deck_Tracker.Utility.Logging;
 using HearthWatcher.LogReader;
 using static Hearthstone_Deck_Tracker.Enums.Hearthstone.Mode;
-using Deck = HearthMirror.Objects.Deck;
 
 #endregion
 

@@ -12,6 +12,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -54,6 +56,7 @@
     <Resource Include="Images\**\*.png" />
     <Resource Include="Resources\**\*.png" />
     <Resource Include="Resources\**\*.jpg" />
+    <Resource Include="Resources\Chunkfive.otf" />
 	
     <EmbeddedResource Include="Resources\CHANGELOG.md" />
 		
@@ -66,16 +69,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\HearthstoneDeckTracker.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\HearthstoneDeckTracker16.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.6.15" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="MahApps.Metro" Version="1.5.0" />
+    <PackageReference Include="Mono.Cecil" Version="0.10.0-beta7" />
     <PackageReference Include="SharpRaven" Version="2.2.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta3" />
     <PackageReference Include="WpfLocalizeExtension" Version="3.1.0" />
@@ -92,8 +96,8 @@
     <Product>Hearthstone Deck Tracker</Product>
     <Company>HearthSim</Company>
     <Authors />
-    <AssemblyVersion>1.5.10.0</AssemblyVersion>
-    <FileVersion>1.5.10.0</FileVersion>
+    <AssemblyVersion>1.5.11.0</AssemblyVersion>
+    <FileVersion>1.5.11.0</FileVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
     <RepositoryType>GIT</RepositoryType>
   </PropertyGroup>

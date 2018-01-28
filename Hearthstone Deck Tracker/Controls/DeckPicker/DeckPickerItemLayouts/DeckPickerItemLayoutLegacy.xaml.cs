@@ -11,8 +11,7 @@ namespace Hearthstone_Deck_Tracker.Controls.DeckPicker.DeckPickerItemLayouts
 	/// <summary>
 	/// Interaction logic for DeckPickerItemLayoutLegacy.xaml
 	/// </summary>
-	public partial class DeckPickerItemLayoutLegacy : UserControl
-	{
+	public partial class DeckPickerItemLayoutLegacy {
 		public DeckPickerItemLayoutLegacy()
 		{
 			InitializeComponent();

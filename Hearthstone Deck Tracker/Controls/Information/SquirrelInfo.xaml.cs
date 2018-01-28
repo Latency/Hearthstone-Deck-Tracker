@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Hearthstone_Deck_Tracker.Controls.Error;
+using Hearthstone_Deck_Tracker.Errors;
 using Hearthstone_Deck_Tracker.Properties;
 using Hearthstone_Deck_Tracker.Utility;
 using Hearthstone_Deck_Tracker.Utility.Logging;

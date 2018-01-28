@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hearthstone_Deck_Tracker.Controls.Error;
+using Hearthstone_Deck_Tracker.Errors;
 using Hearthstone_Deck_Tracker.HsReplay.Data;
 using Hearthstone_Deck_Tracker.Live.Data;
 using Hearthstone_Deck_Tracker.Utility;

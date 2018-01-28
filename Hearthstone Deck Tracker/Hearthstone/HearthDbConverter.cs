@@ -187,7 +187,7 @@ namespace Hearthstone_Deck_Tracker.Hearthstone
 		public static HearthDb.Deckstrings.Deck ToHearthDbDeck(Deck deck)
 		{
 			var card = Database.GetHeroCardFromClass(deck.Class);
-			if(card?.DbfIf > 0)
+			if(card != null && card.DbfIf > 0)
 			{
 				return new HearthDb.Deckstrings.Deck
 				{

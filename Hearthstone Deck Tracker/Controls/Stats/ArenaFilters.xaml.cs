@@ -16,8 +16,7 @@ namespace Hearthstone_Deck_Tracker.Controls.Stats
 	/// <summary>
 	/// Interaction logic for ArenaFilters.xaml
 	/// </summary>
-	public partial class ArenaFilters : UserControl
-	{
+	public partial class ArenaFilters {
 		private readonly bool _initialized;
 		private Action _updateCallback;
 
