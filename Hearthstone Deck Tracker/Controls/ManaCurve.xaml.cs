@@ -8,12 +8,10 @@ using System.Windows.Input;
 using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility;
-using static System.Windows.Visibility;
-using static Hearthstone_Deck_Tracker.Enums.StatType;
 
 #endregion
 
-namespace Hearthstone_Deck_Tracker
+namespace Hearthstone_Deck_Tracker.Controls
 {
 	/// <summary>
 	/// Interaction logic for ManaCurve.xaml
@@ -27,7 +25,7 @@ namespace Hearthstone_Deck_Tracker
 		private const string Hero = "Hero";
 		private const string LocMechanics = "ManaCurve_Button_Mechanics";
 		private const string LocHide = "ManaCurve_Button_Hide";
-		private readonly Controls.ManaCostBar[] _manaCostBars;
+		private readonly ManaCostBar[] _manaCostBars;
 		private Deck _deck;
 
 		public ManaCurve()
@@ -55,7 +53,7 @@ namespace Hearthstone_Deck_Tracker
 			if(deck == null)
 			{
 				ClearDeck();
-				TextBlockNoMechanics.Visibility = Visible;
+				TextBlockNoMechanics.Visibility = Visibility.Visible;
 				return;
 			}
 			if(deck.Equals(_deck))
@@ -67,7 +65,7 @@ namespace Hearthstone_Deck_Tracker
 			deck.GetSelectedDeckVersion().Cards.CollectionChanged += (sender, args) => UpdateValues();
 			UpdateValues();
 			ItemsControlMechanics.ItemsSource = deck.Mechanics;
-			TextBlockNoMechanics.Visibility = deck.Mechanics.Any() ? Collapsed : Visible;
+			TextBlockNoMechanics.Visibility = deck.Mechanics.Any() ? Visibility.Collapsed : Visibility.Visible;
 		}
 
 		public void ClearDeck()
@@ -95,16 +93,16 @@ namespace Hearthstone_Deck_Tracker
 				var statValue = -1;
 				switch(Config.Instance.ManaCurveFilter)
 				{
-					case Mana:
+					case StatType.Mana:
 						statValue = card.Cost;
 						break;
-					case Health:
+					case StatType.Health:
 						statValue = card.Health;
 						break;
-					case Attack:
+					case StatType.Attack:
 						statValue = card.Attack;
 						break;
-					case Overload:
+					case StatType.Overload:
 						statValue = card.Overload;
 						break;
 				}
@@ -132,7 +130,7 @@ namespace Hearthstone_Deck_Tracker
 				}
 				else
 				{
-					if(Config.Instance.ManaCurveFilter == Mana || Config.Instance.ManaCurveFilter == Overload)
+					if(Config.Instance.ManaCurveFilter == StatType.Mana || Config.Instance.ManaCurveFilter == StatType.Overload)
 					{
 						switch(card.Type)
 						{
@@ -199,17 +197,17 @@ namespace Hearthstone_Deck_Tracker
 
 		private void ManaCurveMechanics_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			if(BorderMechanics.Visibility != Visible)
+			if(BorderMechanics.Visibility != Visibility.Visible)
 			{
-				BorderMechanics.Visibility = Visible;
+				BorderMechanics.Visibility = Visibility.Visible;
 				TextBlockManaCurveMechanics.Text = LocUtil.Get(LocHide, true);
 			}
 			else
 			{
-				BorderMechanics.Visibility = Collapsed;
+				BorderMechanics.Visibility = Visibility.Collapsed;
 				TextBlockManaCurveMechanics.Text = LocUtil.Get(LocMechanics, true);
 			}
-			TextBlockNoMechanics.Visibility = _deck != null && _deck.Mechanics.Any() ? Collapsed : Visible;
+			TextBlockNoMechanics.Visibility = _deck != null && _deck.Mechanics.Any() ? Visibility.Collapsed : Visibility.Visible;
 		}
 	}
 

@@ -6,9 +6,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Hearthstone_Deck_Tracker.Enums;
-using Hearthstone_Deck_Tracker.Stats;
-using Hearthstone_Deck_Tracker.Utility;
-using MahApps.Metro.Controls.Dialogs;
 
 #endregion
 

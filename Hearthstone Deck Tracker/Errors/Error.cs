@@ -1,4 +1,4 @@
-﻿namespace Hearthstone_Deck_Tracker.Controls.Error
+﻿namespace Hearthstone_Deck_Tracker.Errors
 {
 	public class Error
 	{

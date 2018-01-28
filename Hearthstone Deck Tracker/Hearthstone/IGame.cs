@@ -1,7 +1,6 @@
 #region
 
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using HearthDb.Enums;
 using HearthMirror.Objects;
 using Hearthstone_Deck_Tracker.Enums;
@@ -50,5 +49,6 @@ namespace Hearthstone_Deck_Tracker.Hearthstone
 		int ProposedAttacker { get; set; }
 		int ProposedDefender { get; set; }
 		bool? IsDungeonMatch { get; }
+		bool PlayerChallengeable { get; }
 	}
 }

@@ -3,7 +3,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using Hearthstone_Deck_Tracker.Hearthstone;
-using Hearthstone_Deck_Tracker.Utility.Logging;
 
 #endregion
 

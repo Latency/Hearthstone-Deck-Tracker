@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using HearthDb;
 using HearthDb.Enums;
 using Hearthstone_Deck_Tracker.Utility;
-using Hearthstone_Deck_Tracker.Controls.Error;
+using Hearthstone_Deck_Tracker.Errors;
 
 #endregion
 

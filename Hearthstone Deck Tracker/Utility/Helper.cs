@@ -694,7 +694,7 @@ namespace Hearthstone_Deck_Tracker.Utility
 		}
 
 		public static bool IsValidUrl(string url)
-			=> Uri.TryCreate(url, UriKind.Absolute, out Uri result)
+			=> Uri.TryCreate(url, UriKind.Absolute, out var result)
 				&& (result.Scheme == Uri.UriSchemeHttp || result.Scheme == Uri.UriSchemeHttps);
 
 		public static readonly Dictionary<MultiClassGroup, CardClass[]> MultiClassGroups = new Dictionary<MultiClassGroup, CardClass[]>
@@ -746,7 +746,7 @@ namespace Hearthstone_Deck_Tracker.Utility
 		public static bool TryGetAttribute<T>(object obj, out T attribute) where T : Attribute
 		{
 			var members = obj?.GetType().GetMember(obj.ToString());
-			if(members?.Length > 0)
+			if(members != null && members.Length > 0)
 			{
 				var attributes = members[0].GetCustomAttributes(typeof(T), false);
 				if(attributes.Length > 0)

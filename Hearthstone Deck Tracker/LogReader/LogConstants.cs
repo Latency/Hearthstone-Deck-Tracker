@@ -1,7 +1,6 @@
 #region
 
 using System.Text.RegularExpressions;
-using HearthWatcher.LogReader;
 
 #endregion
 

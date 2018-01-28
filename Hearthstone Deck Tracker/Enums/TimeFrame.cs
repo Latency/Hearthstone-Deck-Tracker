@@ -1,7 +1,5 @@
 #region
 
-using System.ComponentModel;
-
 #endregion
 
 namespace Hearthstone_Deck_Tracker.Enums

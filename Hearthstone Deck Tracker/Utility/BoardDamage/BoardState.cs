@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Hearthstone.Entities;
 
 #endregion
@@ -40,7 +39,7 @@ namespace Hearthstone_Deck_Tracker.Utility.BoardDamage
 			// if there is no hero in the list, try to find it
 			var heroFound = list.Any(EntityHelper.IsHero);
 			if(!heroFound)
-				list?.Add(EntityHelper.GetHeroEntity(isPlayer, entities, playerId));
+				list.Add(EntityHelper.GetHeroEntity(isPlayer, entities, playerId));
 
 			return new PlayerBoard(list, activeTurn);
 		}

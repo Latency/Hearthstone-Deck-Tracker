@@ -1,17 +1,15 @@
 ﻿#region
 
 using System.Windows;
-using System.Windows.Controls;
 
 #endregion
 
-namespace Hearthstone_Deck_Tracker.Controls.Error
+namespace Hearthstone_Deck_Tracker.Errors
 {
 	/// <summary>
 	/// Interaction logic for ErrorItem.xaml
 	/// </summary>
-	public partial class ErrorItem : UserControl
-	{
+	public partial class ErrorItem {
 		public ErrorItem()
 		{
 			InitializeComponent();
@@ -19,8 +17,7 @@ namespace Hearthstone_Deck_Tracker.Controls.Error
 
 		private void BtnCloseNews_OnClick(object sender, RoutedEventArgs e)
 		{
-			var error = DataContext as Error;
-			if(error != null)
+		    if(DataContext is Error error)
 				ErrorManager.RemoveError(error);
 		}
 	}

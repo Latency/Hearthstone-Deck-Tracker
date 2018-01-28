@@ -4,7 +4,6 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using HearthMirror;
 using HearthMirror.Enums;
 using Hearthstone_Deck_Tracker.Enums.Hearthstone;
@@ -14,7 +13,6 @@ using Hearthstone_Deck_Tracker.LogReader.Interfaces;
 using Hearthstone_Deck_Tracker.Utility.Analytics;
 using Hearthstone_Deck_Tracker.Utility.Extensions;
 using Hearthstone_Deck_Tracker.Utility.Logging;
-using Hearthstone_Deck_Tracker.Windows;
 using HearthWatcher.LogReader;
 
 #endregion
@@ -74,6 +72,14 @@ namespace Hearthstone_Deck_Tracker.LogReader.Handlers
 					Watchers.DungeonRunWatcher.Run();
 				else
 					Watchers.DungeonRunWatcher.Stop();
+
+				if(Config.Instance.FlashHsOnFriendlyChallenge)
+				{
+					if(game.PlayerChallengeable)
+						Watchers.FriendlyChallengeWatcher.Run();
+					else
+						Watchers.FriendlyChallengeWatcher.Stop(); 
+				}
 
 				API.GameEvents.OnModeChanged.Execute(game.CurrentMode);
 			}

@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using HearthDb.Enums;
-using Hearthstone_Deck_Tracker.Enums;
-using Hearthstone_Deck_Tracker.Replay;
 
 #endregion
 

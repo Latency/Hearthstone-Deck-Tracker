@@ -9,8 +9,7 @@ namespace Hearthstone_Deck_Tracker.Controls
 	/// <summary>
 	/// Interaction logic for CardToolTipControl.xaml
 	/// </summary>
-	public partial class CardToolTipControl : UserControl
-	{
+	public partial class CardToolTipControl {
 		public CardToolTipControl()
 		{
 			InitializeComponent();

@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:deckEditor="clr-namespace:Hearthstone_Deck_Tracker.FlyoutControls.DeckEditor"
              xmlns:controls="clr-namespace:Hearthstone_Deck_Tracker.Controls"
-             xmlns:hearthstoneDeckTracker="clr-namespace:Hearthstone_Deck_Tracker"
              xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
@@ -90,7 +89,7 @@
                         </StackPanel>
                     </DockPanel>
                 </Border>
-                <hearthstoneDeckTracker:ManaCurve x:Name="ManaCurve" DockPanel.Dock="Bottom" Height="150" />
+                <controls:ManaCurve x:Name="ManaCurve" DockPanel.Dock="Bottom" Height="150" />
                 <ListView ItemsSource="{Binding Cards}" ScrollViewer.VerticalScrollBarVisibility="Visible"
                           ScrollViewer.CanContentScroll="False"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="0,5" BorderThickness="0">

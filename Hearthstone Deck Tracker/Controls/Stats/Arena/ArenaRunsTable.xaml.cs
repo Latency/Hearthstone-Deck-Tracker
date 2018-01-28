@@ -1,6 +1,5 @@
 #region
 
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,8 +19,7 @@ namespace Hearthstone_Deck_Tracker.Controls.Stats.Arena
 	/// <summary>
 	/// Interaction logic for ArenaRunsTable.xaml
 	/// </summary>
-	public partial class ArenaRunsTable : UserControl
-	{
+	public partial class ArenaRunsTable {
 		private ArenaRun _selectedRun;
 
 		public ArenaRunsTable()

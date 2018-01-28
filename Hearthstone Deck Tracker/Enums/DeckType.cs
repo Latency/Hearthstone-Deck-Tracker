@@ -1,5 +1,3 @@
-using System;
-
 namespace Hearthstone_Deck_Tracker.Enums
 {
 	public enum DeckType
