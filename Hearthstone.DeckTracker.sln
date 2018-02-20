@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{239EBA5D-709C-446C-93FD-40BBF9D5CBBF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		bootstrap.bat = bootstrap.bat
+		CHANGELOG.md = CHANGELOG.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HearthStone.DeckTracker", "Hearthstone.DeckTracker\HearthStone.DeckTracker.csproj", "{2736806A-2CA4-40D6-904B-378BFFB873E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2736806A-2CA4-40D6-904B-378BFFB873E2}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{2736806A-2CA4-40D6-904B-378BFFB873E2}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{2736806A-2CA4-40D6-904B-378BFFB873E2}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{2736806A-2CA4-40D6-904B-378BFFB873E2}.Release|AnyCPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05BDB6EF-99BA-471B-AE51-122A54CA16D3}
+	EndGlobalSection
+EndGlobal

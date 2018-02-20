@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <LanguageTargets Condition="Exists('$(MSBuildProjectDirectory)\$(AssemblyName).csproj')">$(MSBuildToolsPath)\Microsoft.CSharp.targets</LanguageTargets>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>HearthStone.DeckTracker.App</StartupObject>
+    <TargetFramework>net471</TargetFramework>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <RootNamespace>HearthStone.DeckTracker</RootNamespace>
+    <AssemblyName>HearthStone.DeckTracker</AssemblyName>
+    <Product>Hearthstone Deck Tracker</Product>
+    <Description>HearthStone Deck Tracker</Description>
+    <PackageTags>HearthStone Deck Tracker</PackageTags>
+    <PackageReleaseNotes>Revamped build configurations.</PackageReleaseNotes>
+    <RepositoryType>GIT</RepositoryType>
+    <RepositoryUrl>https://github.com/Latency/HearthStone.DeckTracker</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Latency/HearthStone.DeckTracker</PackageProjectUrl>
+    <Copyright>Copyright © HearthSim</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <Company>HearthSim</Company>
+    <Authors>HearthSim</Authors>
+    <PackageIconUrl>https://raw.githubusercontent.com/HearthSim/Hearthstone-Deck-Tracker/master/Hearthstone%20Deck%20Tracker/Images/HearthstoneDeckTracker.ico</PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>snKey.snk</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>Images\HearthstoneDeckTracker.ico</ApplicationIcon>
+    <Version>10.5.12-beta</Version>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Configurations>Debug;Release;Squirrel</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="De.TorstenMandelkow.MetroChart">
+      <HintPath>lib\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Windows.Forms" />
+    <!-- App.xaml -->
+    <ApplicationDefinition Include="App.xaml" SubType="Designer" Generator="MSBuild:XamlIntelliSenseFileGenerator" />
+    <!-- XAML elements -->
+    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" Exclude="App.xaml" />
+    <Compile Update="**\*.xaml.cs" SubType="Designer" DependentUpon="%(Filename)" />
+    <Compile Include="$(IntermediateOutputPath)**\*.g.cs" Visible="false" />
+    <!-- Resources -->
+    <Resource Include="Images\**\*.ico" />
+    <Resource Include="Images\**\*.png" />
+    <Resource Include="Resources\**\*.png" />
+    <Resource Include="Resources\**\*.jpg" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+    <Page Remove="obj\**" />
+    <None Remove="PostBuildEvent.bat" />
+    <Resource Include="Resources\Chunkfive.otf" />
+    <EmbeddedResource Include="Resources\CHANGELOG.md" />
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <Compile Update="Properties\Resources.Designer.cs" AutoGen="True" DependentUpon="Resources.resx" DesignTime="True" />
+    <EmbeddedResource Update="Properties\Strings.resx" Generator="PublicResXFileCodeGenerator" LastGenOutput="Strings.Designer.cs" />
+    <EmbeddedResource Update="Properties\Strings.*.resx" SubType="Designer" DependentUpon="Strings.resx" />
+    <Compile Update="Properties\Strings.Designer.cs" AutoGen="True" DependentUpon="Strings.resx" DesignTime="True" />
+    <Content Include="Images\HearthstoneDeckTracker.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\HearthstoneDeckTracker16.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <PackageReference Include="HearthStone.Replay" Version="1.0.1" />
+    <PackageReference Include="HearthStone.ResourceGenerator" Version="2.0.0-rc" />
+    <PackageReference Include="HearthStone.Watcher" Version="1.0.1" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.6.15" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MahApps.Metro" Version="1.5.0" />
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.1" />
+    <PackageReference Include="SharpRaven" Version="2.2.0" />
+    <PackageReference Include="WpfLocalizeExtension" Version="3.1.0" />
+  </ItemGroup>
+  <Target Name="GenerateDesignerFiles">
+    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" Sources="Properties/Strings.resx" StronglyTypedLanguage="C#" StronglyTypedClassName="Strings" StronglyTypedNamespace="Hearthstone_Deck_Tracker.Properties" StronglyTypedFileName="Properties/Strings.Designer.cs" OutputResources="Hearthstone_Deck_Tracker.Properties.Strings.resources" PublicClass="true" />
+    <Delete Files="Hearthstone_Deck_Tracker.Properties.Strings.resources" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <CallTarget Targets="GenerateDesignerFiles" />
+  </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&quot;$(ProjectDir)PreBuildEvent.bat&quot; &quot;$(ProjectDir)..\&quot; &quot;$(ProjectDir)&quot; &quot;$(TargetDir)&quot; &quot;$(DevEnvDir)&quot; 1 0" />
+  </Target>
+  <ItemGroup>
+    <_ResxFiles Remove="obj\**" />
+  </ItemGroup>
+</Project>

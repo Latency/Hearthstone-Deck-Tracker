@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ResourceGenerator": {
-      "commandName": "Project",
-      "commandLineArgs": "\"$(SolutionDir)Resources\" Tiles 0"
-    }
-  }
-}
